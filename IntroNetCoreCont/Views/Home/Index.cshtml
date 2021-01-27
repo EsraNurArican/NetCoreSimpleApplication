@@ -1,0 +1,46 @@
+﻿@model IEnumerable<IntroNetCoreCont.Models.Product>
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+
+   
+
+    <h1>ANASAYFA</h1>
+    <p>Sayfamıza hoş geldin!</p>
+    <p>
+        Merhaba @ViewBag.Name, şu an saat @ViewBag.Time
+
+    </p>
+    @if (ViewBag.Time < 12)
+    {
+        <p>Günaydın</p>
+    }
+    else if (ViewBag.Time < 18)
+    {
+        <p>İyi Günler</p>
+    }
+    else if (ViewBag.Time < 20)
+    {
+        <p>İyi Akşamlar</p>
+    }
+    else
+    {
+        <p>İyi geceler</p>
+    }
+
+    <!-- Oluşturduğumuz ürünleri c# ile foreach kullanarak burada ekrana bastırabiliriz
+         at işareti koyarak yapılmalı
+    -->
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@item.Name isimli ürünün fiyatı @item.Price TL</li>
+
+        }
+    </ul>
+
+    Koronaya veda partisi düzenliyoruz. Katılmak için <a asp-action="Davet" asp-controller="Home" class="btn btn-succes">tıkla</a>
+
+
+
